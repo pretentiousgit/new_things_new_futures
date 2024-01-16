@@ -1,14 +1,17 @@
-{
-    "arc": ["Collapse", "Discipline", "Grow", "Transform"],
-    "duration": [
-        "A few years",
-        "A decade",
-        "A generation",
-        "Two generations",
-        "A century",
-        "A millennium"
-      ],
-      "terrain": [
+// This is a hack
+// Loading JSON is finicky even now
+// But loading a plain JS object to a global var is fine!
+
+const data = {
+    "action": {
+      title: ["Collapse", "Discipline", "Grow", "Transform"], 
+      timeline: [
+      "A few years",
+      "A decade",
+      "30 years",
+      "60 years"
+    ]},
+      "topic": [
         "Agriculture",
         "The Brain",
         "Childhood",

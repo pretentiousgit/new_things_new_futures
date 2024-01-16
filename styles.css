@@ -26,18 +26,6 @@ li {
     justify-content: space-between;
 }
 
-.card .label {
-    display: inline;
-}
-
-.contents {
-    display: flex;
-    height: 100%;
-
-    /* Hide initial */
-    display: none; 
-}
-
 .card {
     background-color: #f9f1e4;
     border: 1px solid #333;
@@ -67,6 +55,30 @@ li {
     transform: rotateY(180deg);
 }
 
-.card .label.hidden {
+.card.flipped .contents {
+    transform: rotateY(-180deg);
+}
+
+.label {
+    display: inline;
+}
+
+.label::first-letter {
+    text-transform: uppercase;
+}
+
+.contents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contents h1::first-letter {
+    text-transform: uppercase;
+}
+
+
+
+.hidden {
     display: none;
 }

@@ -1,40 +1,104 @@
-function turnCard(evt){
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+// A hack - data is defined in data.js
+// It is then written to the global scope by loading it before script.js in the <head> of the document
+// This is not great for legibility but JSON imports are tricky in browsers just now!
+const dataOptions = data;
+
+function cardToggle(display, hide, card) {
+  hide.classList.toggle("hidden");
+  // play animation
+  card.classList.toggle("flipped");
+  setTimeout(() => {
+    // show label rotating in
+    display.classList.toggle("hidden");
+  }, 200);
+}
+
+function showContents(card) {
+  const id = card.id;
+  const label = card.querySelector(".label");
+  const contents = card.querySelector(".contents");
+
+  // Select a title and timeline for action
+  // or else get random text to fill the card
+  const cardContent = (id === 'action' )
+  ? actionContents() :
+    otherContent(id);
+
+  //Show us what got selected
+  console.log(cardContent);
+  
+  // Set the content of the flipped card
+  contents.innerHTML = cardContent;
+
+  // hide the label
+  label.classList.toggle("hidden");
+  
+  // play twirl animation
+  card.classList.toggle("flipped");
+  
+  setTimeout(() => {
+    // show contents rotating in
+    contents.classList.toggle("hidden");
+  }, 200);
 
 }
 
+function hideContents(card) {
+  // const id = card.id;
+  const label = card.querySelector(".label");
+  const contents = card.querySelector(".contents");
+
+  // hide contents
+  contents.classList.toggle("hidden");
+  // play twirl animation
+  card.classList.toggle("flipped");
+  
+  setTimeout(() => {
+    // show contents rotating in
+    label.classList.toggle("hidden");
+  }, 200);
+}
+
+// Pick cards to flip
+function turnCard(evt) {
+  console.log(evt.target);
+  const clickedCard = evt.target.closest('.card');
+
+  const classList = [...clickedCard.classList];
+
+  // Flip the card
+  (classList.includes("flipped"))
+    ? hideContents(clickedCard)
+    : showContents(clickedCard);
+}
+
 function cardActions() {
-  const cards = [...document.querySelectorAll('.card')]; // convert NodeList to array
-  const arc = document.querySelector('#arc');
-  const terrain = document.querySelector('#terrain');
-  const objt = document.querySelector('#objt');
-  const mood = document.querySelector('#mood');
+  const cards = [...document.querySelectorAll(".card")];
+  cards.forEach((card) => {
+    card.addEventListener("click", (evt) => turnCard(evt));
+  });
+}
 
-  cards.forEach(card => {
-    // Detect when the animation ends
-    card.addEventListener('click', (evt) => {
-        console.log(evt.target.id);
-        const clickedCard = evt.target
-        const label = clickedCard.querySelector('.label');
-        const contents = clickedCard.querySelector('.contents');
+function actionContents() {
+  const title = getRandomIntInclusive(0, data.action.title.length - 1);
+  const timeline = getRandomIntInclusive(0, data.action.timeline.length - 1);
+  return `<h1>Action</h1><h3>${data.action.title[title]}</h3><div>${data.action.timeline[timeline]}</div>`;
+}
 
-        console.log(clickedCard.classList)
-        const classList = [...clickedCard.classList];
-        if(classList.includes("flipped")){
-          contents.classList.toggle("hidden");
-          clickedCard.classList.toggle("flipped");
-          setTimeout(() => {
-            label.classList.toggle("hidden");
-          }, 200);
-        } else {
-          label.classList.toggle("hidden");
-          clickedCard.classList.toggle("flipped");
-          setTimeout(() => {
-            contents.classList.toggle("hidden");
-          }, 200);
-        }
-    })
-  })
-
+function otherContent(str) {
+  try {
+    const text = getRandomIntInclusive(0, data[str].length - 1);
+    return `<h1>${str}</h1><p>${data[str][text]}</p>`;
+  } catch {
+    console.log('ERROR:', str);
+    return `<h1>Error</h1><p>No data for ${str}</p>`;
+  }
 }
 
 // function showarc() {
@@ -97,5 +161,6 @@ function cardActions() {
 //   document.getElementById("overlay").style.display = "none";
 // }
 
-
-document.addEventListener('DOMContentLoaded', async () => {cardActions()})
+document.addEventListener("DOMContentLoaded", async () => {
+  cardActions();
+});

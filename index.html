@@ -2,17 +2,31 @@
 <html lang="en">
   <head>
     <title>The Thing from the Future!</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- favicon and app icon from prev TFTF -->
-    <link rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/822c2d86-7acf-4102-bd39-a4a7fec0e423%2Ffavicon-01.png?v=1579186189983" />
-    <link rel="apple-touch-icon" sizes="180x180" type="image/png" href="https://cdn.glitch.com/822c2d86-7acf-4102-bd39-a4a7fec0e423%2Fappicon-01.png?v=1579186190277" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="/styles.css">
-    <script src="/script.js" defer></script>
-  </head>  
+    <!-- favicon and app icon from prev TFTF -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="https://cdn.glitch.com/822c2d86-7acf-4102-bd39-a4a7fec0e423%2Ffavicon-01.png?v=1579186189983"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      type="image/png"
+      href="https://cdn.glitch.com/822c2d86-7acf-4102-bd39-a4a7fec0e423%2Fappicon-01.png?v=1579186190277"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <!-- this has to go here to import the data options -->
+    <script src="data.js"></script>
+
+    <!-- script goes here and the load is deferred to the end of the page -->
+    <script type="module" src="/script.js" defer></script>
+  </head>
   <body>
     <!-- <header>
       <nav>
@@ -22,32 +36,30 @@
       </nav>
     </header> -->
     <section>
-      <h1>
-      The Thing from the Future
-      </h1>
+      <h1>The Thing from the Future</h1>
     </section>
-      <section class="gameboard">
-        <!-- All the backgrounds have the class cardback -->
-        <!-- All the actual cards have the class prompt -->
-        <div class="card" id="arc" role="button">
-            <div class="label">Arc</div>
-            <div class="contents hidden">&nbsp;</div>
-        </div>
+    <section class="gameboard">
+      <!-- All the backgrounds have the class cardback -->
+      <!-- All the actual cards have the class prompt -->
+      <div class="card" id="action" role="button">
+        <div class="label">Action</div>
+        <div class="contents hidden">&nbsp;</div>
+      </div>
 
-        <div class="card" id="terrain" role="button">
-            <div class="label">Terrain</div>
-            <div class="contents hidden">&nbsp;</div>
-        </div>
+      <div class="card" id="topic" role="button">
+        <div class="label">Topic</div>
+        <div class="contents hidden">&nbsp;</div>
+      </div>
 
-        <div class="card" id="object" role="button">
-            <div class="label">Object</div>
-            <div class="contents hidden">&nbsp;</div>
-        </div>
+      <div class="card" id="object" role="button">
+        <div class="label">Object</div>
+        <div class="contents hidden">&nbsp;</div>
+      </div>
 
-        <div class="card" id="mood" role="button">
-            <div class="label">Mood</div>
-            <div class="contents hidden">&nbsp;</div>
-        </div>
+      <div class="card" id="mood" role="button">
+        <div class="label">Mood</div>
+        <div class="contents hidden">&nbsp;</div>
+      </div>
     </section>
   </body>
 </html>
