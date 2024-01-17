@@ -88,13 +88,13 @@ function cardActions() {
 function actionContents() {
   const title = getRandomIntInclusive(0, data.action.title.length - 1);
   const timeline = getRandomIntInclusive(0, data.action.timeline.length - 1);
-  return `<h1>Action</h1><h3>${data.action.title[title]}</h3><div>${data.action.timeline[timeline]}</div>`;
+  return `<span>action</span><p>${data.action.title[title]}: ${data.action.timeline[timeline]}</p>`;
 }
 
 function otherContent(str) {
   try {
     const text = getRandomIntInclusive(0, data[str].length - 1);
-    return `<h1>${str}</h1><p>${data[str][text]}</p>`;
+    return `<span>${str}</span><p>${data[str][text]}</p>`;
   } catch {
     console.log('ERROR:', str);
     return `<h1>Error</h1><p>No data for ${str}</p>`;

@@ -4,12 +4,13 @@
 
 const data = {
     "action": {
+      // add some art - where are we now, are we travelling up or down?
       title: ["Collapse", "Discipline", "Grow", "Transform"], 
       timeline: [
       "A few years",
       "A decade",
-      "30 years",
-      "60 years"
+      "You have kids/30 years",
+      "Your kids have kids/60 years"
     ]},
       "topic": [
         "Agriculture",
@@ -22,9 +23,8 @@ const data = {
         "Communications",
         "Court",
         "Disease",
-        "The Economy",
+        "Economy",
         "Drones",
-        "The Economy",
         "Entertainment",
         "Environment",
         "Equality",
@@ -183,5 +183,4 @@ const data = {
         "Worry",
         "Zen"
       ]
-
 }
