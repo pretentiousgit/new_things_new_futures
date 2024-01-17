@@ -5,7 +5,7 @@
 const data = {
     "action": {
       // add some art - where are we now, are we travelling up or down?
-      title: ["Collapse", "Discipline", "Grow", "Transform"], 
+      title: ["Utopic", "Bettter", "No Change" ,"Worse", "Dystopic"], 
       timeline: [
       "A few years",
       "A decade",
@@ -13,8 +13,9 @@ const data = {
       "Your kids have kids/60 years"
     ]},
       "topic": [
+        "Advertising",
         "Agriculture",
-        "The Brain",
+        "Brains",
         "Childhood",
         "Citizenship",
         "Class",
@@ -66,11 +67,9 @@ const data = {
         "Wealth",
         "Women",
         "Work",
-        "Zombies",
-        "The Zoo"
+        "Zoo"
       ],
       "object": [
-        "Advertisement",
         "Artwork",
         "Beverage",
         "Book",
@@ -97,7 +96,7 @@ const data = {
         "Logo",
         "Lotion",
         "Machine",
-        "Magazine cover",
+        "Magazine",
         "Map",
         "Mask",
         "Monument",
@@ -108,7 +107,7 @@ const data = {
         "Poster",
         "Product",
         "Prosthetic",
-        "Public service announcement",
+        "Public Service Announcement",
         "Relic",
         "Ritual",
         "Show",
@@ -127,7 +126,7 @@ const data = {
         "Video",
         "Weapon"
       ],
-      "mood": [
+      "user_mood": [
         "Admiration",
         "Alienation",
         "Amusement",

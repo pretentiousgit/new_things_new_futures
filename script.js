@@ -88,7 +88,7 @@ function cardActions() {
 function actionContents() {
   const title = getRandomIntInclusive(0, data.action.title.length - 1);
   const timeline = getRandomIntInclusive(0, data.action.timeline.length - 1);
-  return `<span>action</span><p>${data.action.title[title]}: ${data.action.timeline[timeline]}</p>`;
+  return `<span>timeline</span><p>${data.action.title[title]}: ${data.action.timeline[timeline]}</p>`;
 }
 
 function otherContent(str) {
